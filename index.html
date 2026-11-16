@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No. 70A Susan's House Homestay</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            DEFAULT: '#1e293b',
+                            accent: '#0d9488'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Top Bar / Navbar -->
+    <header class="bg-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Section -->
+            <a href="#" class="flex items-center gap-3">
+                <!-- Replace 'images/logo.jpg' with your actual logo file path -->
+                <img src="images/logo.png" alt="No. 70A Susan's House Homestay Logo" class="h-14 w-auto object-contain rounded-md" onerror="this.onerror=null">
+                <div class="hidden sm:block">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-teal-600">Welcome</span>
+                    <h1 class="text-lg font-bold text-slate-900 leading-tight">No. 70A Susan's House</h1>
+                </div>
+            </a>
+
+            <!-- Navigation Links & Language Switcher -->
+            <div class="flex items-center gap-4">
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+                    <a href="#rooms" class="hover:text-teal-600 transition" data-i18n="nav_rooms">Rooms & Rates</a>
+                    <a href="#landmarks" class="hover:text-teal-600 transition" data-i18n="nav_landmarks">Landmarks</a>
+                    <a href="#contact" class="hover:text-teal-600 transition" data-i18n="nav_contact">Contact</a>
+                </nav>
+
+                <!-- Language Selector Dropdown -->
+                <select id="langSwitch" onchange="changeLanguage(this.value)" class="bg-slate-100 border border-slate-300 rounded-lg px-3 py-1.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <option value="en">English</option>
+                    <option value="bm">Bahasa Malaysia</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-slate-900 text-white py-20 lg:py-28 overflow-hidden">
+        <div class="absolute inset-0 opacity-40">
+            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=2000&q=80" alt="Homestay Background" class="w-full h-full object-cover">
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="bg-teal-500/20 border border-teal-400/30 text-teal-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-4" data-i18n="hero_badge">Comfortable & Cozy Stay</span>
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6" data-i18n="hero_title">Welcome to No. 70A Susan's House</h2>
+            <p class="max-w-2xl mx-auto text-lg text-slate-300 mb-8" data-i18n="hero_subtitle">Your ideal homestay experience near KDCA. Fully furnished, air-conditioned rooms, and friendly environment waiting for you.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#rooms" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg transition" data-i18n="hero_cta1">View Rooms & Prices</a>
+                <a href="#contact" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-3.5 rounded-xl backdrop-blur-sm transition" data-i18n="hero_cta2">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms & Rates Section -->
+    <section id="rooms" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4" data-i18n="rooms_heading">Our Accommodation Types</h2>
+            <p class="text-slate-600" data-i18n="rooms_subheading">Choose from our selection of comfortable houses, rooms, and cabin units tailored for your stay.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            
+            <!-- Type 1 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100 flex flex-col">
+                <div class="relative h-64 bg-slate-200 cursor-pointer group" onclick="openGallery('type1')">
+                    <img src="images/room-type1-1.jpeg" alt="Type 1 House" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80';">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                        <span class="bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">
+                            <i class="fas fa-images mr-1"></i> Click to view photos
+                        </span>
+                    </div>
+                    <span class="absolute top-4 right-4 bg-teal-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow">RM300 / 1 night</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1" data-i18n="t1_title">Type 1: 1 house with 3 rooms</h3>
+                        <p class="text-sm font-semibold text-teal-600 mb-4" data-i18n="t1_rate">Rate: RM300 / 1 night</p>
+                        <h4 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2" data-i18n="facilities_label">Facilities:</h4>
+                        <ul class="space-y-1.5 text-sm text-slate-600 mb-6">
+                            <li data-i18n="t1_f1">• 3 rooms with queen bed</li>
+                            <li data-i18n="t1_f2">• Toilet with shower and heater</li>
+                            <li data-i18n="t1_f3">• Fully furnished</li>
+                            <li data-i18n="t1_f4">• Living room with comfortable sofa set</li>
+                            <li data-i18n="t1_f5">• Dining area with dining table & chairs</li>
+                            <li data-i18n="t1_f6">• Kitchen - utensils available upon request with additional cost or RM30/-</li>
+                            <li data-i18n="t1_f7">• Fridge & Washing machine</li>
+                            <li data-i18n="t1_f8">• Standard room amenities</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/60133362081?text=Hi,%20I%20would%20like%20to%20book%20No.%2070A%20Susan's%20House%20Type%201%20(RM300/night)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="book_whatsapp">Book via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Type 2 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100 flex flex-col">
+                <div class="relative h-64 bg-slate-200 cursor-pointer group" onclick="openGallery('type2')">
+                    <img src="images/room-type2-1.jpeg" alt="Type 2 Landed Room" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80';">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                        <span class="bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">
+                            <i class="fas fa-images mr-1"></i> Click to view photos
+                        </span>
+                    </div>
+                    <span class="absolute top-4 right-4 bg-teal-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow">RM150 / 1 night</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1" data-i18n="t2_title">Type 2: Landed room with aircond</h3>
+                        <p class="text-sm font-semibold text-teal-600 mb-4" data-i18n="t2_rate">Rate: RM150 / 1 night</p>
+                        <h4 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2" data-i18n="facilities_label">Facilities:</h4>
+                        <ul class="space-y-1.5 text-sm text-slate-600 mb-6">
+                            <li data-i18n="t2_f1">• 2 single bed</li>
+                            <li data-i18n="t2_f2">• Toilet with shower and heater</li>
+                            <li data-i18n="t2_f3">• Fully furnished with aircond</li>
+                            <li data-i18n="t2_f4">• Coffee table</li>
+                            <li data-i18n="t2_f5">• Kitchen (outside) - utensils available upon request with additional cost or RM30/-</li>
+                            <li data-i18n="t2_f6">• Fridge & Standard room amenities</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/60133362081?text=Hi,%20I%20would%20like%20to%20book%20No.%2070A%20Susan's%20House%20Type%202%20Landed%20Room%20(RM150/night)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="book_whatsapp">Book via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Type 3.1 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100 flex flex-col">
+                <div class="relative h-64 bg-slate-200 cursor-pointer group" onclick="openGallery('type31')">
+                    <img src="images/room-type3-1-1.jpeg" alt="Type 3.1 Cabin House" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80';">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                        <span class="bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">
+                            <i class="fas fa-images mr-1"></i> Click to view photos
+                        </span>
+                    </div>
+                    <span class="absolute top-4 right-4 bg-teal-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow">RM150 / 1 night[cite: 1]</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1" data-i18n="t31_title">Type 3.1: Cabin house with aircond</h3>
+                        <p class="text-sm font-semibold text-teal-600 mb-4" data-i18n="t31_rate">Rate: RM150 / 1 night</p>
+                        <h4 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2" data-i18n="facilities_label">Facilities:</h4>
+                        <ul class="space-y-1.5 text-sm text-slate-600 mb-6">
+                            <li data-i18n="t31_f1">• 2 single bed</li>
+                            <li data-i18n="t31_f2">• Toilet with shower and heater</li>
+                            <li data-i18n="t31_f3">• Fully furnished with aircond</li>
+                            <li data-i18n="t31_f4">• Coffee table & Wardrobe rack</li>
+                            <li data-i18n="t31_f5">• Standard room amenities</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/60133362081?text=Hi,%20I%20would%20like%20to%20book%20No.%2070A%20Susan's%20House%20Type%203.1%20Cabin%20House%20(RM150/night)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="book_whatsapp">Book via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Type 3.2 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100 flex flex-col">
+                <div class="relative h-64 bg-slate-200 cursor-pointer group" onclick="openGallery('type32')">
+                    <img src="images/room-type3-2-1.jpeg" alt="Type 3.2 Cabin House" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80';">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                        <span class="bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">
+                            <i class="fas fa-images mr-1"></i> Click to view photos
+                        </span>
+                    </div>
+                    <span class="absolute top-4 right-4 bg-teal-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow">RM150 / 1 night</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-1" data-i18n="t32_title">Type 3.2: Cabin house with aircond</h3>
+                        <p class="text-sm font-semibold text-teal-600 mb-4" data-i18n="t32_rate">Rate: RM150 / 1 night</p>
+                        <h4 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2" data-i18n="facilities_label">Facilities:</h4>
+                        <ul class="space-y-1.5 text-sm text-slate-600 mb-6">
+                            <li data-i18n="t32_f1">• Queen size bed</li>
+                            <li data-i18n="t32_f2">• Toilet with shower and heater</li>
+                            <li data-i18n="t32_f3">• Fully furnished with aircond</li>
+                            <li data-i18n="t32_f4">• Coffee table & Wardrobe rack</li>
+                            <li data-i18n="t32_f5">• Standard room amenities</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/60133362081?text=Hi,%20I%20would%20like%20to%20book%20No.%2070A%20Susan's%20House%20Type%203.2%20Cabin%20House%20(RM150/night)" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> <span data-i18n="book_whatsapp">Book via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Landmarks Section -->
+    <section id="landmarks" class="bg-slate-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-i18n="landmarks_heading">Nearby Landmarks & Convenience</h2>
+                <p class="text-slate-400" data-i18n="landmarks_subheading">Conveniently located close to cultural hubs, main roads, and major shopping malls[cite: 1].</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-800/60 border border-slate-700/60 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="l1_title">KDCA Access</h3>
+                    <p class="text-sm text-slate-400" data-i18n="l1_desc">5 min walk to KDCA (Kadazan Dusun Cultural Association).</p>
+                </div>
+
+                <div class="bg-slate-800/60 border border-slate-700/60 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="l2_title">Main Road</h3>
+                    <p class="text-sm text-slate-400" data-i18n="l2_desc">5 min walk to main road for easy transport access.</p>
+                </div>
+
+                <div class="bg-slate-800/60 border border-slate-700/60 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="l3_title">Parking</h3>
+                    <p class="text-sm text-slate-400" data-i18n="l3_desc">Parking available first come first serve basis.</p>
+                </div>
+
+                <div class="bg-slate-800/60 border border-slate-700/60 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="l4_title">Nearby Malls</h3>
+                    <p class="text-sm text-slate-400" data-i18n="l4_desc">Servay Hypermarket, ITCC, Plaza 333, Plaza Millenium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-teal-700 rounded-3xl text-white p-8 lg:p-16 text-center shadow-xl">
+            <h2 class="text-3xl font-bold mb-4" data-i18n="contact_heading">Ready to Book Your Stay?</h2>
+            <p class="max-w-xl mx-auto text-teal-100 mb-8" data-i18n="contact_subheading">Contact our friendly hosts directly via WhatsApp or phone call for immediate reservation assistance.</p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/60133362081?text=Hi,%20I%20would%20like%20to%20inquire%20about%20No.70A%20Susan's%20House%20Homestay" target="_blank" class="bg-white text-teal-800 hover:bg-teal-50 font-bold px-6 py-3.5 rounded-xl shadow transition flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-emerald-600 text-xl"></i> 013-3362081 (Susani)
+                </a>
+                <a href="https://wa.me/60133444799?text=Hi,%20I%20would%20like%20to%20inquire%20about%20No.70A%20Susan's%20House%20Homestay" target="_blank" class="bg-white text-teal-800 hover:bg-teal-50 font-bold px-6 py-3.5 rounded-xl shadow transition flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-emerald-600 text-xl"></i> 013-3444799 (Pancer)
+                </a>
+                <a href="https://wa.me/60165527382?text=Hi,%20I%20would%20like%20to%20inquire%20about%20No.70A%20Susan's%20House%20Homestay" target="_blank" class="bg-white text-teal-800 hover:bg-teal-50 font-bold px-6 py-3.5 rounded-xl shadow transition flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-emerald-600 text-xl"></i> 016-5527382 (Exlieza)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-500 py-8 text-center text-sm border-t border-slate-800">
+        <p data-i18n="footer_text">&copy; 2026 No. 70A Susan's House Homestay. All rights reserved.</p>
+    </footer>
+
+    <!-- Image Gallery Modal -->
+    <div id="galleryModal" class="fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+            <button onclick="closeGallery()" class="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black text-white w-10 h-10 rounded-full flex items-center justify-center text-xl transition">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="p-6 text-center">
+                <h3 class="text-white text-xl font-bold mb-4" data-i18n="gallery_title">Room Gallery</h3>
+                <div class="relative flex items-center justify-center min-h-[40vh] sm:min-h-[50vh]">
+                    <button onclick="prevImage()" class="absolute left-2 z-10 bg-black/60 hover:bg-black text-white p-3 rounded-full transition"><i class="fas fa-chevron-left text-lg"></i></button>
+                    <img id="modalImage" src="" alt="Room Gallery Image" class="max-h-[60vh] max-w-full object-contain rounded-lg mx-auto">
+                    <button onclick="nextImage()" class="absolute right-2 z-10 bg-black/60 hover:bg-black text-white p-3 rounded-full transition"><i class="fas fa-chevron-right text-lg"></i></button>
+                </div>
+                <p id="imageCounter" class="text-slate-400 text-sm mt-4">1 / 3</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Section -->
+    <script>
+        // Multi-photo collections for each room type
+        const roomGalleries = {
+            type1: [
+                'images/room-type1-1.jpeg',
+                'images/room-type1-2.jpeg',
+                'images/room-type1-3.jpeg',
+                'images/room-type1-4.jpeg',
+                'images/room-type1-5.jpeg',
+                'images/room-type1-6.jpeg'
+            ],
+            type2: [
+                'images/room-type2-1.jpeg'
+            ],
+            type31: [
+                'images/room-type3-1-1.jpeg',
+                'images/room-type3-1-2.jpeg',
+                'images/room-type3-1-3.jpeg'
+            ],
+            type32: [
+                'images/room-type3-2-1.jpeg',
+                'images/room-type3-2-2.jpeg',
+                'images/room-type3-2-3.jpeg'
+            ]
+        };
+
+        let currentGalleryKey = 'type1';
+        let currentIndex = 0;
+
+        function openGallery(roomKey) {
+            currentGalleryKey = roomKey;
+            currentIndex = 0;
+            updateModalImage();
+            document.getElementById('galleryModal').classList.remove('hidden');
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').classList.add('hidden');
+        }
+
+        function nextImage() {
+            const images = roomGalleries[currentGalleryKey];
+            currentIndex = (currentIndex + 1) % images.length;
+            updateModalImage();
+        }
+
+        function prevImage() {
+            const images = roomGalleries[currentGalleryKey];
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            const images = roomGalleries[currentGalleryKey];
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = images[currentIndex];
+            // Fallback if custom images aren't added yet
+            modalImg.onerror = function() {
+                this.src = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80';
+            };
+            document.getElementById('imageCounter').textContent = `${currentIndex + 1} / ${images.length}`;
+        }
+
+        // Translation Dictionary
+        const translations = {
+            en: {
+                nav_rooms: "Rooms & Rates",
+                nav_landmarks: "Landmarks",
+                nav_contact: "Contact",
+                hero_badge: "Comfortable & Cozy Stay",
+                hero_title: "Welcome to No. 70A Susan's House",
+                hero_subtitle: "Your ideal homestay experience near KDCA. Fully furnished, air-conditioned rooms, and friendly environment waiting for you.",
+                hero_cta1: "View Rooms & Prices",
+                hero_cta2: "Contact Us",
+                rooms_heading: "Our Accommodation Types",
+                rooms_subheading: "Choose from our selection of comfortable houses, rooms, and cabin units tailored for your stay.",
+                facilities_label: "Facilities:",
+                book_whatsapp: "Book via WhatsApp",
+                gallery_title: "Room Gallery",
+                
+                t1_title: "Type 1: 1 house with 3 rooms",
+                t1_rate: "Rate: RM300 / 1 night",
+                t1_f1: "• 3 rooms with queen bed",
+                t1_f2: "• Toilet with shower and heater",
+                t1_f3: "• Fully furnished",
+                t1_f4: "• Living room with comfortable sofa set",
+                t1_f5: "• Dining area with dining table & chairs",
+                t1_f6: "• Kitchen - utensils available upon request with additional cost or RM30/-",
+                t1_f7: "• Fridge & Washing machine",
+                t1_f8: "• Standard room amenities",
+
+                t2_title: "Type 2: Landed room with aircond",
+                t2_rate: "Rate: RM150 / 1 night",
+                t2_f1: "• 2 single bed",
+                t2_f2: "• Toilet with shower and heater",
+                t2_f3: "• Fully furnished with aircond",
+                t2_f4: "• Coffee table",
+                t2_f5: "• Kitchen (outside) - utensils available upon request with additional cost or RM30/-",
+                t2_f6: "• Fridge & Standard room amenities",
+
+                t31_title: "Type 3.1: Cabin house with aircond",
+                t31_rate: "Rate: RM150 / 1 night",
+                t31_f1: "• 2 single bed",
+                t31_f2: "• Toilet with shower and heater",
+                t31_f3: "• Fully furnished with aircond",
+                t31_f4: "• Coffee table & Wardrobe rack",
+                t31_f5: "• Standard room amenities",
+
+                t32_title: "Type 3.2: Cabin house with aircond",
+                t32_rate: "Rate: RM150 / 1 night",
+                t32_f1: "• Queen size bed",
+                t32_f2: "• Toilet with shower and heater",
+                t32_f3: "• Fully furnished with aircond",
+                t32_f4: "• Coffee table & Wardrobe rack",
+                t32_f5: "• Standard room amenities",
+
+                landmarks_heading: "Nearby Landmarks & Convenience",
+                landmarks_subheading: "Conveniently located close to cultural hubs, main roads, and major shopping malls.",
+                l1_title: "KDCA Access",
+                l1_desc: "5 min walk to KDCA (Kadazan Dusun Cultural Association).",
+                l2_title: "Main Road",
+                l2_desc: "5 min walk to main road for easy transport access.",
+                l3_title: "Parking",
+                l3_desc: "Parking available first come first serve basis.",
+                l4_title: "Nearby Malls",
+                l4_desc: "Servay Hypermarket, ITCC, Plaza 333, Plaza Millenium.",
+
+                contact_heading: "Ready to Book Your Stay?",
+                contact_subheading: "Contact our friendly hosts directly via WhatsApp or phone call for immediate reservation assistance.",
+                footer_text: "© 2026 No. 70A Susan's House Homestay. All rights reserved."
+            },
+            bm: {
+                nav_rooms: "Bilik & Kadar",
+                nav_landmarks: "Landmark",
+                nav_contact: "Hubungi",
+                hero_badge: "Penginapan Selesa & Mesra",
+                hero_title: "Selamat Datang ke No. 70A Susan's House",
+                hero_subtitle: "Penginapan ideal anda berhampiran KDCA. Dilengkapi sepenuhnya, bilik berhawa dingin, dan persekitaran yang mesra menanti anda.",
+                hero_cta1: "Lihat Bilik & Harga",
+                hero_cta2: "Hubungi Kami",
+                rooms_heading: "Jenis Penginapan Kami",
+                rooms_subheading: "Pilih daripada pilihan rumah, bilik, dan unit kabin selesa kami yang disesuaikan untuk penginapan anda.",
+                facilities_label: "Kemudahan:",
+                book_whatsapp: "Tempah melalui WhatsApp",
+                gallery_title: "Galeri Bilik",
+                
+                t1_title: "Jenis 1: 1 rumah dengan 3 bilik",
+                t1_rate: "Kadar: RM300 / 1 malam",
+                t1_f1: "• 3 bilik dengan katil queen",
+                t1_f2: "• Tandas dengan pancuran mandian dan pemanas",
+                t1_f3: "• Dilengkapi sepenuhnya",
+                t1_f4: "• Ruang tamu dengan set sofa yang selesa",
+                t1_f5: "• Ruang makan dengan meja makan & kerusi",
+                t1_f6: "• Dapur - perkakas disediakan atas permintaan dengan kos tambahan atau RM30/-",
+                t1_f7: "• Peti sejuk & Mesin basuh",
+                t1_f8: "• Kemudahan bilik standard",
+
+                t2_title: "Jenis 2: Bilik bertingkat dengan aircond",
+                t2_rate: "Kadar: RM150 / 1 malam",
+                t2_f1: "• 2 katil single",
+                t2_f2: "• Tandas dengan pancuran mandian dan pemanas",
+                t2_f3: "• Dilengkapi sepenuhnya dengan aircond",
+                t2_f4: "• Meja kopi",
+                t2_f5: "• Dapur (luar) - perkakas disediakan atas permintaan dengan kos tambahan atau RM30/-",
+                t2_f6: "• Peti sejuk & Kemudahan bilik standard",
+
+                t31_title: "Jenis 3.1: Rumah kabin dengan aircond",
+                t31_rate: "Kadar: RM150 / 1 malam",
+                t31_f1: "• 2 katil single",
+                t31_f2: "• Tandas dengan pancuran mandian dan pemanas",
+                t31_f3: "• Dilengkapi sepenuhnya dengan aircond",
+                t31_f4: "• Meja kopi & Rak pakaian",
+                t31_f5: "• Kemudahan bilik standard",
+
+                t32_title: "Jenis 3.2: Rumah kabin dengan aircond",
+                t32_rate: "Kadar: RM150 / 1 malam",
+                t32_f1: "• Katil saiz queen",
+                t32_f2: "• Tandas dengan pancuran mandian dan pemanas",
+                t32_f3: "• Dilengkapi sepenuhnya dengan aircond",
+                t32_f4: "• Meja kopi & Rak pakaian",
+                t32_f5: "• Kemudahan bilik standard",
+
+                landmarks_heading: "Landmark & Kemudahan Berdekatan",
+                landmarks_subheading: "Terletak berhampiran pusat kebudayaan, jalan utama, dan pusat beli-belah utama.",
+                l1_title: "Akses KDCA",
+                l1_desc: "5 minit berjalan kaki ke KDCA (Kadazan Dusun Cultural Association).",
+                l2_title: "Jalan Utama",
+                l2_desc: "5 minit berjalan kaki ke jalan utama untuk akses pengangkutan mudah.",
+                l3_title: "Tempat Letak Kereta",
+                l3_desc: "Tempat letak kereta disediakan mengikut siapa cepat dia dapat.",
+                l4_title: "Pusat Beli-belah",
+                l4_desc: "Servay Hypermarket, ITCC, Plaza 333, Plaza Millenium.",
+
+                contact_heading: "Bersedia untuk Menempah?",
+                contact_subheading: "Hubungi hos mesra kami secara terus melalui WhatsApp atau panggilan telefon untuk bantuan tempahan segera.",
+                footer_text: "© 2026 No. 70A Susan's House Homestay. Hak cipta terpelihara."
+            }
+        };
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
